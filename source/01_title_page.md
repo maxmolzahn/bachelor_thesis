@@ -3,30 +3,30 @@
   Workaround bzw. Rückgriff auf LaTex-Befehle, um zentrale Werte immer wieder verwenden zu können.
 -->
 % Abschlussarbeit
-\newcommand{\titel}{Titel der Abschlussarbeit}
-\newcommand{\datum}{01.03.2018}
+\newcommand{\titel}{Innovative Lösungsstrategien für die Personenidentifikation im Fahrzeug: Evaluierung, Auswahl und prototypische Umsetzung mit moderner Fahrzeugtechnologie.}
+\newcommand{\datum}{15.03.2024}
 
 % Autor_in
-\newcommand{\aVorname}{Max}
-\newcommand{\aNachname}{Mustermann}
-\newcommand{\aGeburtsdatum}{01.04.1998}
+\newcommand{\aVorname}{Maximilian}
+\newcommand{\aNachname}{Molzahn}
+\newcommand{\aGeburtsdatum}{03.07.2000}
 \newcommand{\aInstitution}{Hochschule München}
 \newcommand{\aStudiengruppe}{IF7}
-\newcommand{\aSemester}{WS 17/2018}
+\newcommand{\aSemester}{WS 2023/24}
 
 \newcommand{\aName}{\aVorname\space \aNachname}
 
 % Prüfer_in
 \newcommand{\pTitle}{Prof. Dr.}
-\newcommand{\pVorname}{}
-\newcommand{\pNachname}{}
+\newcommand{\pVorname}{Lars}
+\newcommand{\pNachname}{Wischhof}
 \newcommand{\pInstitution}{Hochschule München}
 
 % Betreuer_in
 \newcommand{\bTitle}{Dr.}
-\newcommand{\bVorname}{}
-\newcommand{\bNachname}{}
-\newcommand{\bInstitution}{Firma GmbH}
+\newcommand{\bVorname}{Thomas}
+\newcommand{\bNachname}{Kupka}
+\newcommand{\bInstitution}{BMW Group}
 
 \title{\titel}
 \author{\aName}
@@ -38,19 +38,19 @@
 \begin{titlepage}
     \begin{center}
 
-        \includegraphics[width=1\textwidth]{style/hm-fk07_logo.jpg}
+        \includegraphics[width=1\textwidth]{style/header_logo2.png}
 
-        \vspace*{1.0cm}
+        \vspace*{0.3cm}
 
         \LARGE
         \titel
 
-        \vspace{1.5cm}
+        \vspace{0.5cm}
 
         \Large
         \aName
 
-        \vspace{0.5cm}
+        \vspace{0.3cm}
 
         \normalsize
         Bachelorarbeit Informatik
@@ -61,10 +61,10 @@
         Prüfer:\\
         \pTitle\space \pVorname\space \pNachname,\space \pInstitution
 
-        \vspace{0.5cm}
+        \vspace{0.1cm}
 
         % Firmenlogo
-        % \includegraphics[width=0.4\textwidth]{style/firmenlogo.png}
+        % \includegraphics[width=0.4\textwidth]{style/bmw-group_logo.png}
 
         \normalsize
         Betreuer:\\
