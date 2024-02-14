@@ -33,7 +33,6 @@ pdf:
 	-C \
 	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
-	--citeproc \
 	--csl="$(STYLEDIR)/ref_format.csl" \
 	--highlight-style pygments \
 	-V fontsize=12pt \
@@ -50,7 +49,6 @@ pdf-test:
 	-H "$(STYLEDIR)/preamble.tex" \
 	-C \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
-	--citeproc \
 	--csl="$(STYLEDIR)/ref_format.csl" \
 	--highlight-style pygments \
 	-V fontsize=12pt \

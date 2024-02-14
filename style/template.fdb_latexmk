@@ -1,0 +1,14 @@
+# Fdb version 4
+["pdflatex"] 1706181032.32568 "/Users/maxmolzahn/Library/CloudStorage/OneDrive-HochschuleMünchen/Studium/Kurse/Bachelor/bachelor_thesis/style/template.tex" "template.pdf" "template" 1706181033.30782 2
+  "$documentclass$.cls" 0 -1 0 ""
+  "/Users/maxmolzahn/Library/CloudStorage/OneDrive-HochschuleMünchen/Studium/Kurse/Bachelor/bachelor_thesis/style/template.tex" 1705536775.76162 6962 5c178bb3fcc68211a859c8e546623de8 ""
+  "/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf" 1697057529 41009 84b61f42d16d06bedb915f57aa2374cf ""
+  "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1705534273 8219069 7678eced786c9034964b8a30dee28179 ""
+  "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
+  "template.aux" 0 -1 0 "pdflatex"
+  "template.tex" 1705536775.76162 6962 5c178bb3fcc68211a859c8e546623de8 ""
+  (generated)
+  "template.aux"
+  "template.log"
+  "template.pdf"
+  (rewritten before read)
