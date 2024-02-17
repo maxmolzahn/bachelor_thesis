@@ -32,7 +32,7 @@ Das Ziel liegt somit in der Entwicklung einer innovativen Identifizierungsmethod
 
 Die Identifikation einer Person ist ein komplexer Prozess, der verschiedene Aspekte umfasst und insbesondere im Hinblick auf Datenschutzthemen von entscheidender Bedeutung ist. 
 
-Identifizierung: „jemanden/etwas meist an bestimmten Merkmalen (wieder)erkennen.“[@definition_identifizierung].
+Identifizierung: „jemanden/etwas meist an bestimmten Merkmalen (wieder)erkennen.“[@definition_identifizierung]
 
 Hierbei spielen Begriffe wie Authentisierung, Authentifizierung und Autorisierung eine Schlüsselrolle.
 
