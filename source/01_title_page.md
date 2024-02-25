@@ -38,7 +38,7 @@
 \begin{titlepage}
     \begin{center}
 
-        \includegraphics[width=1\textwidth]{style/header_logo2.png}
+        \includegraphics[width=0.8\textwidth]{style/header_logo2.png}
 
         \vspace*{0.3cm}
 
