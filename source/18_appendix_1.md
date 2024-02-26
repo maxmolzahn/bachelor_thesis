@@ -1,12 +1,9 @@
-# Anhang 1: Ein Anhang {.unnumbered}
+# Anhang 1: Bildschirmaufnahmen des Frontends {.unnumbered}
 
-<!--
-Dies könnte zum Beispiel eine Liste von Artikeln des Autors sein.
--->
+![Startbildschirm des Frontends](source/figures/frontend_screens/Start.png){ width=100% }
 
-```python
+!["Add Speaker"-Seite im Frontend](source/figures/frontend_screens/New_speaker.png){ width=100% }
 
-def main():
-    print("Hello World!")
+!["View Speakers"-Seite im Frontend](source/figures/frontend_screens/Show_speakers.png){ width=100% }
 
-```
+!["Train Model"-Seite im Frontend](source/figures/frontend_screens/Train_Model.png){ width=100% }
