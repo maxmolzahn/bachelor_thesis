@@ -38,7 +38,6 @@ pdf:
 	-V fontsize=12pt \
 	-V papersize=a4paper \
 	-V documentclass:report \
-	-V lang:de-DE \
 	-V mainlang:german \
 	-N \
 	--pdf-engine=xelatex
@@ -48,6 +47,7 @@ pdf-test:
 	-o "$(OUTPUTDIR)/thesis.pdf" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	-C \
+	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/ref_format.csl" \
 	--highlight-style pygments \

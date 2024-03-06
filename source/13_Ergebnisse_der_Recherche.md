@@ -1,10 +1,10 @@
-# Ergebnisse
+# Ergebnisse der Recherche
 
 Im Folgenden werden die Ausgewählten Identifizierungstechnologien vorgestellt und untersucht. Ziel ist es, ein Verständnis für die vielfältigen Ansätze zur Insassenidentifizierung zu schaffen und diese zu evaluieren.
 
 ## Mobile App & Authentifizierungsportal
 
-Mobile Apps haben in den letzten Jahren eine eindrucksvolle Entwicklung durchlaufen und sind zu einem festen Bestandteil des digitalen Alltags geworden. Allein in Deutschland lag der Anteil der Smartphone-Nutzer im Jahr 2022 bei 81,1 % und wird Prognosen zufolge bis 2027 auf 86,3 % steigen [@statista_smartphone_anteil]. Insbesondere die Verknüpfung von mobilen Apps mit dem Unterhaltungssektor hat zu innovativen Nutzererlebnissen geführt. Dieses Potential könnte auch für die Nutzung der Insassenidentifizierung von großer Bedeutung sein.
+Mobile Apps haben in den letzten Jahren eine eindrucksvolle Entwicklung durchlaufen und sind zu einem festen Bestandteil des digitalen Alltags geworden. Allein in Deutschland lag der Anteil der Smartphone-Nutzer im Jahr 2022 bei 81,1 % und wird Prognosen zufolge bis 2027 auf 86,3 % steigen. [@statista_smartphone_anteil] Insbesondere die Verknüpfung von mobilen Apps mit dem Unterhaltungssektor hat zu innovativen Nutzererlebnissen geführt. Dieses Potential könnte auch für die Nutzung der Insassenidentifizierung von großer Bedeutung sein.
 
 ### Grundlagen
 
@@ -54,9 +54,9 @@ Im Rahmen der Marktanalyse in Kapitel 3.2 wird deutlich, dass die Gesichtserkenn
 
 ### Grundlagen
 
-Die Gesichtserkennungstechnologie hat in den letzten Jahren erhebliche Fortschritte gemacht und wird zunehmend in verschiedenen Bereichen eingesetzt. Durch den Einsatz von maschinellem Lernen (ML) und diverser Sensortechnologien wird unterstrichen, dass sehr präzise Ergebnisse erzielt werden können [@face_segmentation]. Bekannte Beispiele für die Integration dieser Technologie in den Alltag sind die Face ID Funktionen in Mobilgeräten von Apple wie dem iPhone, die die Zuverlässigkeit und Präzision der Gesichtserkennungstechnologie demonstrieren [@apple_patent_faceid]. Diese Technologie ermöglicht es iPhone-Nutzern, ihr Gerät zu entsperren, automatisch Passwörter einzugeben und sogar Zahlungen vorzunehmen.
+Die Gesichtserkennungstechnologie hat in den letzten Jahren erhebliche Fortschritte gemacht und wird zunehmend in verschiedenen Bereichen eingesetzt. Durch den Einsatz von ML und diverser Sensortechnologien wird unterstrichen, dass sehr präzise Ergebnisse erzielt werden können. [@face_segmentation] Bekannte Beispiele für die Integration dieser Technologie in den Alltag sind die Face ID Funktionen in Mobilgeräten von Apple wie dem iPhone, die die Zuverlässigkeit und Präzision der Gesichtserkennungstechnologie demonstrieren. [@apple_patent_faceid] Diese Technologie ermöglicht es iPhone-Nutzern, ihr Gerät zu entsperren, automatisch Passwörter einzugeben und sogar Zahlungen vorzunehmen.
 
-Die Implementierung der kamerabasierten Gesichtserkennung hat sich, bezüglich des Rechenaufwandes als sehr effizient erwiesen. *"Insgesamt läuft DeepFace mit 0,33 Sekunden pro Bild, wenn man die Bilddekodierung, […] und die endgültige Klassifizierungsausgabe berücksichtigt."* Das oben erwähnte DeepFace ist ein von Facebook entwickelter Gesichtserkennungsalgorithmus, der Gesichter mit einer Genauigkeit von 97,35 % ($\pm$ 0,25 %) erkennen kann. Das ist fast so genau wie die menschliche Gesichtserkennung, die dem Paper zufolge bei über 97,5 % liegt. [@deepface]
+Die Implementierung der kamerabasierten Gesichtserkennung hat sich, bezüglich des Rechenaufwandes als sehr effizient erwiesen. *"Mit einer single core Intel CPU mit 2,2 GHz [...] läuft DeepFace mit 0,33 Sekunden pro Bild, wenn man die Bilddekodierung, […] und die endgültige Klassifizierungsausgabe berücksichtigt."* Das oben erwähnte DeepFace ist ein von Facebook entwickelter Gesichtserkennungsalgorithmus, der Gesichter mit einer Genauigkeit von 97,35 % ($\pm$ 0,25 %) erkennen kann. Das ist fast so genau wie die menschliche Gesichtserkennung, die dem Paper zufolge bei über 97,5 % liegt. [@deepface]
 
 Der Einsatz von ML beweist, dass die Erkennung von Gesichtern auf der Grundlage verschiedener Merkmale die Genauigkeit der Identifizierung verbessert. Dies kann auch angewendet werden, wenn mehrere Personen auf dem Bild zu sehen sind.
 
@@ -72,9 +72,9 @@ Durch die Verwendung von vordefinierten Segmenten im Bild kann die genaue Positi
 
 Die Gesichtserkennungstechnologie hat gegenüber der Verwendung einer mobilen App eine Reihe von Vorteilen.
 
-Die Insassen müssen keine manuellen Eingriffe vornehmen; sie müssen sich lediglich in das Fahrzeug setzen. Ebenso ist für die Gesichtserkennung keine Verknüpfung mit einem zuvor angelegten Insassenkonto wie der BMW ID erforderlich. Somit wird eine bedienerfreundliche Erfahrung ermöglicht, da die Insassen nach erfolgreicher Einrichtung ohne zusätzlichen Aufwand identifiziert werden können.
+Die Insassen müssen keine manuellen Eingriffe vornehmen, sie müssen sich lediglich in das Fahrzeug setzen. Ebenso ist für die Gesichtserkennung keine Verknüpfung mit einem zuvor angelegten Insassenkonto wie der BMW ID erforderlich. Somit wird eine bedienerfreundliche Erfahrung ermöglicht, da die Insassen nach erfolgreicher Einrichtung ohne zusätzlichen Aufwand identifiziert werden können. Dieser Ansatz ist jedoch nur in einem Familienkontext mit einer begrenzten Anzahl an möglichen Insassen von Vorteil, da ansonsten die Fahrerprofile aus einem Backend, z.B. im Fall von Carsharing, übernommen werden müssen.
 
-Ein weiterer Vorteil ist die Einfachheit und Schnelligkeit des Einrichtungsprozesses. Ein anschauliches Beispiel für die Effizienz ist die Einrichtung von Face ID auf einem iPhone, die in einer selbst getesteten Umgebung weniger als zwei Minuten dauerte. (TODO: Selbstexperiment... vllt. Quelle finden)
+Ein weiterer Vorzug ist die Einfachheit und Schnelligkeit des Einrichtungsprozesses. Ein anschauliches Beispiel für die Effizienz ist die Einrichtung von Face ID auf einem iPhone, die in einer selbst getesteten Umgebung weniger als zwei Minuten dauerte. (TODO: Selbstexperiment... vllt. Quelle finden)
 
 Dieses unkomplizierte und benutzerfreundliche Konzept trägt erheblich zur Attraktivität der Gesichtserkennungstechnologie für die Identifizierung von Fahrzeuginsassen bei.
 
@@ -86,6 +86,8 @@ Ein wichtiger Aspekt ist der Datenschutz, denn biometrische Daten gehören zu de
 Ein weiterer Aspekt sind die Lichtverhältnisse im Fahrzeug, bei denen herkömmliche Bilderkennungssysteme oft Schwierigkeiten haben. Moderne Sensortechnologien, wie beispielsweise bei Face ID, funktionieren auch bei völliger Dunkelheit sehr gut, erfordern aber besondere Vorkehrungen bei der Implementierung im Fahrzeugkontext, um optimale Ergebnisse zu erzielen. Eine solche Vorkehrung ist bespielsweise die Einhaltung des Abstands zwischen Sensor und Gesicht.
 
 Die Positionierung der Kamera und der Sensoren in verschiedenen Fahrzeugformen ist ebenfalls ein entscheidender Faktor. Die Vielfalt der Fahrzeugdesigns erfordert eine flexible Anpassung der Sensorplatzierung, um eine optimale Erkennung von Gesichtern auf allen Sitzen zu gewährleisten. Es kann zu Verzerrungen aufgrund von Kamerawinkeln kommen, was den Einsatz von Bildverarbeitungsfiltern erfordert, um diese Herausforderung zu bewältigen.
+
+Hinzu kommt der Aspekt des wechselnden Erscheinungsbildes der Insassen. Die Gesichtserkennungstechnologie muss in der Lage sein, Personen unabhängig von ihrer Kleidung, Frisur oder Brille zu erkennen.
 
 ## Stimmerkennung
 
@@ -103,7 +105,7 @@ Der Einsatz der Stimmerkennungstechnologie zur Insassenidentifikation eröffnet 
 
 ### Konzeptionierung
 
-Auch hier sind Parallelen zur Gesichtserkennung zu erkennen, wobei die Kamera durch ein- oder mehrere Mikrofone ersetzt wird. ML wird genutzt, um eine Stimmerkennung durchzuführen, die den Insassen identifiziert, der gerade spricht. Diese Identifizierung kann auch ohne die Verwendung einer konkreten BMW ID erfolgen.
+Auch hier sind Parallelen zur Gesichtserkennung zu erkennen, wobei die Kamera durch ein- oder mehrere Mikrofone ersetzt wird. ML wird genutzt, um eine Stimmerkennung durchzuführen, die den Insassen identifiziert, der gerade spricht. Dazu muss das ML-Modell zunächst trainiert werden, was voraussetzt, dass die Insassen identifizierbare Stimmprofile erstellen, indem sie eine Reihe von Sätzen sprechen, die vom Modell aufgenommen und klassifiziert werden. Beim Carsharing kann das Training über eine mobile App mit Anbindung an ein Backend erfolgen, welches nach dem Training die Stimmprofile über alle Poolfahrzeuge synchronisiert. Im familiären Kontext kann das Training lokal im Fahrzeug stattfinden, was auch ohne die Verwendung einer BMW ID Synchronisierung erfolgen kann und somit keine Backend-Anbindung benötigt.
 
 Zur Lokalisierung des Insassen, während der Stimmerkennung können verschiedene Methoden eingesetzt werden. Durch die Verwendung eines Mikrofons pro Sitzplatz kann beispielsweise ein Dezibel-Schwellenwert verwendet werden, um die lauteste Stimme zu isolieren, die gerade an diesem Platz gesprochen wird. Alternativ kann mit Hilfe der Mikrofontriangulation, bei der drei Mikrofone zum Einsatz kommen, die genaue Position der Stimme bestimmt werden. [@microphone_triangulation]
 

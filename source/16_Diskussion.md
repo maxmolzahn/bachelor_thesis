@@ -1,21 +1,25 @@
 # Diskussion
 
-## Auswertung der Nutzerbefragung
+## Akzeptanz der Nutzer
 
 TODO
 
-## Nutzerfreundlichkeit und Akzeptanz
+## Anwendungsfälle
 
 TODO
 
-## Datensachutz und Privatsphäre
+### Familienfahrzeug
+
+TODO
+
+### Carsharing und Poolfahrzeuge
+
+TODO
+
+### Weitere Anwendungsfälle
 
 TODO
 
 ## Implementierung in der Fahrzeug Serie
-
-TODO
-
-## Schlussfolgerung
 
 TODO
