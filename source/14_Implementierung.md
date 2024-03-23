@@ -1,20 +1,20 @@
 # Implementierung
 
-Das folgende Kapitel liefert einen Einblick in die implementierte Identifikationslösung. Zu beachten ist, dass die Umsetzung im Fahrzeugkontext einen anderen Ansatz als bei herkömmlichen Lösungen erfordert. Insbesondere ist die Rechenleistung der Headunit im Fahrzeug auf die für ihre vordefinierten Funktionen erforderliche Leistung beschränkt, und muss bei der Implementierung berücksichtigt werden.
+Das folgende Kapitel liefert einen Einblick in die implementierte Identifizierungslösung. Es ist zu beachten, dass die Umsetzung im Fahrzeugkontext einen anderen Ansatz als bei herkömmlichen Lösungen erfordert. Insbesondere ist die Rechenleistung der Headunit im Fahrzeug auf die für ihre vordefinierten Funktionen erforderliche Leistung beschränkt, und muss bei der Implementierung berücksichtigt werden.
 
 Die Implementierung zeigt weitere Herausforderungen bei der Gestaltung einer fahrzeugorientierten Architektur auf und setzt einen gängigen Lösungsansatz um.
 
 ## Auswahl der Identifizierungstechnologie
 
-Als Implementierungsmethode wurde die **Stimmerkennung** gewählt, die speziell von der ODM-Abteilung von BMW gefordert wurde. Diese Entscheidung resultierte aus der Tatsache, dass dieser Ansatz bisher noch nicht im Fahrzeugkontext betrachtet wurde. Die Technologie hat ein ungenutztes Potenzial für einen innovativen Ansatz im Fahrzeugbereich.
+Als Implementierungsmethode wurde die **Stimmerkennung** gewählt, die speziell von der ODM-Abteilung von BMW gefordert wurde. Diese Entscheidung resultierte aus der Tatsache, dass dieser Ansatz bisher noch nicht im Fahrzeugkontext betrachtet wurde. Diese Technologie besitzt ein ungenutztes Potenzial für einen innovativen Ansatz im Fahrzeugbereich.
 
 Die Stimmerkennungstechnologie, wie in Kapitel 4.3 dargelegt, präsentiert klare Vorzüge im Vergleich zu bestehenden Lösungen wie der Gesichtserkennung. Dies ist insbesondere auf die bereits im Fahrzeug vorhandenen Mikrofone zurückzuführen, was zu weniger Veränderungen in der Fahrzeugarchitektur führt.
 
-Außerdem ist es von Interesse, die Zuverlässigkeit dieser Technologie in verschiedenen Situationen zu bewerten. Die in Kapitel 4.3.4 beschriebenen Herausforderungen werden dann sorgfältig ausgewertet und analysiert.
+Es ist von Interesse, die Zuverlässigkeit dieser Technologie in verschiedenen Situationen zu bewerten. Die in Kapitel 4.3.4 beschriebenen Herausforderungen werden im Anschluss sorgfältig ausgewertet und analysiert.
 
 ## Anforderungen
 
-Die Anforderungen an die Implementierung beruhen auf den ersten Forschungsergebnissen und sollen als Leitfaden für die Entwicklung dienen. Die Implementierung ist als ‚Proof of Concept‘ (engl. Wirksamkeitsnachweis) ausgelegt und zielt nicht auf eine endgültige Lösung ab. Sie soll die Umsetzbarkeit der Stimmerkennung in einem Fahrzeugkontext demonstrieren und als Grundlage für weitere Entwicklungen dienen.
+Die Anforderungen an die Implementierung beruhen auf den ersten Forschungsergebnissen und sollen als Leitfaden für die weitere Entwicklung dienen. Die Implementierung ist als ‚Proof of Concept‘ (Wirksamkeitsnachweis) ausgelegt und zielt nicht auf eine endgültige Lösung ab. Sie soll die Umsetzbarkeit der Stimmerkennung in einem Fahrzeugkontext demonstrieren und als Grundlage für weitere Entwicklungen dienen.
 
 Einerseits sollte die Anwendung für den Einsatz im Fahrzeug optimiert sein, andererseits aber auch übertragbar sein, um in verschiedenen Umgebungen getestet werden zu können. Diese Vielseitigkeit ermöglicht eine ausführliche Evaluierung der Technologie in verschiedenen Szenarien.
 
@@ -24,19 +24,19 @@ Effiziente Ressourcennutzung ist ein weiteres Anforderungskriterium. Die Impleme
 
 ## Entwurf der Architektur
 
-Die gewählte Architektur basiert auf einer vierstufigen Architektur, bei der jede Komponente eine bestimmte Funktion erfüllt. Dieses Design ähnelt einer Microservices-Struktur, da es ihre Aufgaben auf verschiedene Systeme verteilt. Im Gegensatz zu einem Monolithen ist dies einfacher zu testen und einzusetzen. Auch die Skalierbarkeit einer Microservice-Architektur ist wesentlich simpler, da sie bei Bedarf angepasst werden kann. [@development_docker]
+Es wurde eine vierstufigen Architektur gewählt, bei der jede Komponente eine bestimmte Funktion erfüllt. Dieses Design ähnelt einer Microservices-Struktur, da es ihre Aufgaben auf verschiedene Systeme verteilt. Im Gegensatz zu einem Monolithen ist dies einfacher zu testen und einzusetzen. Auch die Skalierbarkeit einer Microservice-Architektur ist wesentlich simpler, da sie bei Bedarf angepasst werden kann. [@development_docker]
 
-Im Fahrzeug selbst sind fünf Mikrofone installiert. Als Ersatz für die Headunit wird eine Incar-Komponente eingesetzt, die der begrenzten Rechenleistung des Systems entgegenkommt. Aus diesem Grund leitet die Incar-Komponente die Sprachdaten nur weiter und führt selbst keine Inferenzen durch. Im Sinne des Datenschutzes wäre es besser, die Sprachdaten lokal im Fahrzeug zu verarbeiten, aber im Rahmen dieser Implementierung findet die Inferenz im Backend statt.
+Im Fahrzeug selbst sind fünf Mikrofone installiert. Als Ersatz für die Headunit wird eine Incar-Komponente eingesetzt, die der begrenzten Rechenleistung des Systems entgegenkommt. Aus diesem Grund leitet die Incar-Komponente die Sprachdaten nur weiter und führt selbst keine Klassifizierung durch. 
 
 Ein Backend-Server ist für die umfassende Verarbeitung aller Informationen zuständig. Die übrigen Komponenten kommunizieren ausschließlich mit dem Backend, wo sie dann verarbeitet und weitergeleitet werden.
 
 Die direkte Nutzerschnittstelle ist eine Frontend Webapp, über die der Anwender sämtliche Funktionen im Backend ausführen kann. Hierzu zählt die Verwaltung von Sprechern, das Training des Modells und das Einsehen der Ergebnisse der Klassifizierung. 
 
-Außerdem gibt es eine separate Backendkomponente, das so genannte GPU-Backend, das für das Training des Modells verwendet wird. Die Trennung ergibt sich aus den Kosten für eine grafikkartenbeschleunigte Instanz, die nur dann aktiviert wird, wenn das Training erforderlich ist. Die Inferenzprozesse laufen über das normale Backend, da diese weniger rechenintensiv sind. Diese Struktur gewährleistet eine effiziente Nutzung der Ressourcen und eine Kostenoptimierung.
+Außerdem gibt es eine separate Backendkomponente, das so genannte GPU-Backend, das für das Training des Modells verwendet wird. Die Trennung ergibt sich aus den Kosten für eine grafikkartenbeschleunigte Instanz, die nur dann aktiviert wird, wenn das Training erforderlich ist. Die Klassifizierungen laufen über das normale Backend, da diese weniger rechenintensiv sind. Diese Struktur gewährleistet eine effiziente Nutzung der Ressourcen und eine Kostenoptimierung.
 
 ![Architektur der Implementierung \label{architektur_abbildung}](source/diagrams/Architektur.png){ width=100% }
 
-Abbildung \ref{architektur_abbildung} veranschaulicht die beschriebene Architektur, die einer Sternarchitektur entspricht, was für die Abkapselung einzelner Komponenten vorteilhaft ist. So können Komponenten wie das GPU-Backend abgeschaltet werden, um Kosten zu sparen. In der Praxis würde das System auch dann weiter laufen, wenn die Incar-Komponente nicht angeschlossen ist oder aufgrund eines schwachen Mobilfunknetzes ausfällt.
+Abbildung \ref{architektur_abbildung} veranschaulicht die beschriebene Architektur, die einer Sternarchitektur entspricht, was für die Abkapselung einzelner Komponenten vorteilhaft ist. So können Komponenten wie das GPU-Backend abgeschaltet werden, um Kosten zu sparen. In der Praxis würde das System auch dann weiterlaufen, wenn die Incar-Komponente nicht angeschlossen ist oder aufgrund eines schwachen Mobilfunknetzes ausfällt.
 
 Für die Implementierung im Rahmen dieser Bachelorarbeit werden diese Komponenten aus verschiedenen Gründen containerisiert mittels Docker. Unter anderem überzeugt eine Abstraktionsschicht, bei der Code und Abhängigkeiten in einem Container zusammengeführt werden. Dies erleichtert die Entwicklung auf einer Plattform und die Bereitstellung in der Cloud, was die Produktivität erhöht. [@development_docker]
 
@@ -44,25 +44,23 @@ Für die Implementierung im Rahmen dieser Bachelorarbeit werden diese Komponente
 
 Die gewählte Hardware ermöglicht eine fahrzeugnahe Umsetzung im BMW-Kontext. Zum Einsatz kommen fünf Lavaliermikrofone der Firma AGPTEK mit einem 3,5mm Klinkenanschluss. Es sollten fünf identische Mikrofone verwendet werden, um mögliche Abweichungen bei den Ergebnissen zu vermeiden.
 
-Der Einfachheit halber wurden externe Mikrofone gewählt, da der Anschluss an die bereits im Fahrzeug verbauten Mikrofone in Entwicklungsfahrzeugen nur unter bestimmten Bedingungen möglich ist. Die gewählte Lösung ist daher auch für Tests unter anderen Bedingungen besser geeignet, nämlich für Tests außerhalb des Fahrzeugs.
+Der Einfachheit halber wurden externe Mikrofone gewählt, da der Anschluss an die bereits im Fahrzeug verbauten Mikrofone in Entwicklungsfahrzeugen nur unter bestimmten Bedingungen möglich ist. Die gewählte Lösung ist daher auch für Tests unter wechselnden Bedingungen besser geeignet, nämlich für Tests außerhalb des Fahrzeugs.
 
-Die Incar-Komponente kann auf unterschiedlichen Systemen laufen. Für diese Implementierung wird ein Apple MacBook Pro 13 Zoll mit vier Thunderbolt 3 Anschlüsse und einem Klinkenanschluss der 2020er Generation verwendet. Ein Mikrofon wird direkt über eine 3,5-mm-Klinkenbuchse angeschlossen und die restlichen Mikrofone mittels eines Apple USB-C auf Klinkenadapters angeschlossen. Nach vielen Fehlversuchen war dies die am besten funktionierende Lösung. Der ursprüngliche Ansatz mit fünf USB-A-Mikrofonen, die über einen USB-Hub angeschlossen waren, erwies sich als nicht erfolgreich, da die Mikrofone eines Herstellers die gleiche Geräte-ID im USB-Bus besitzen. Das bedeutet, dass nur die zuletzt angeschlossenen Mikrofone angesprochen werden konnten.
-
-(TODO: Für weitere Entwicklungen könnte der Einsatz eines Raspberrypis zu einsatz kommen...)
+Die Incar-Komponente kann auf unterschiedlichen Systemen laufen. Für diese Implementierung wird ein Apple MacBook Pro 13 Zoll mit vier Thunderbolt 3 Anschlüsse und einem Klinkenanschluss der 2020er Generation verwendet. Ein Mikrofon wird direkt über eine 3,5-mm-Klinkenbuchse angeschlossen und die restlichen Mikrofone mittels eines Apple USB-C auf Klinkenadapters angeschlossen. Nach mehreren Fehlversuchen war dies die am besten funktionierende Lösung. Der ursprüngliche Ansatz mit fünf USB-A-Mikrofonen, die über einen USB-Hub angeschlossen waren, erwies sich als nicht erfolgreich, da die Mikrofone eines Herstellers die gleiche Geräte-ID im USB-Bus besitzen. Das bedeutet, dass nur die zuletzt angeschlossenen Mikrofone angesprochen werden konnten.
 
 Eine Amazon Web Services (AWS) Elastic Compute Cloud (EC2) Instanz wird für die Backend- und Frontend-Komponenten eingesetzt. Diese wird durch BMW bereitgestellt, um eine flexible und skalierbare Lösung für die Durchführung von Tests im Fahrzeug zu bieten. Es wurde eine 'EC2-t4g.large' Instanz gewählt, die durch ihr Preis-Leistungs-Verhältnis bei allgemeinen Arbeitslasten überzeugt. Sie ist mit zwei virtuellen ARM-basierten Prozessorkernen und 8GiB Arbeitsspeicher ausgestattet. Diese Konfiguration ist für die Entwicklung und den mäßigen Einsatz zu Test- und Evaluierungszwecken gedacht und kann bei Bedarf skaliert werden. [@aws_ec2]
 
 Das GPU-Backend läuft zunächst lokal auf einem GPU-beschleunigten Intel-basierten Computer. Dieser verfügt über einen Intel i7 4790K, 16GiB RAM und eine Nvidia GTX 970 mit 4GiB Grafikspeicher. Durch die Verwendung der 1664 CUDA-Recheneinheiten [@nvidia_gtx_970] konnten die Trainingszeiten im Vergleich zur t4g-Instanz deutlich reduziert werden.
 
-(TODO Diagramm zeigen) 
+(TODO Zeit pro epoche für GPU und EC2 vergleichen Diagramm) 
 
-In Zukunft soll das ML-Backend auch auf einer AWS EC2-Instanz laufen, die GPU-beschleunigt ist. Das gesamte System wäre dann lediglich über einen Amazon Simple Storage Server (S3) Bucket [@aws_s3] mit dem Backend vernüpft, was die Speicherung von, in diesem Fall ML-Modelle, zwischen verschiedenen Komponenten vereinfacht.
+In Zukunft soll das ML-Backend auch auf einer AWS EC2-Instanz laufen, die GPU-beschleunigt ist. Das gesamte System wäre dann lediglich über einen Amazon Simple Storage Server (S3) Bucket [@aws_s3] mit dem Backend verknüpft, was die Speicherung von, in diesem Fall ML-Modelle, zwischen verschiedenen Komponenten vereinfacht.
 
 ## Softwarekomponenten
 
 Die einzelnen Komponenten werden im Folgenden erläutert. Es wird unter anderem gezeigt, welche Anforderungen sie zu erfüllen haben und wie verschiedene Problemstellungen gelöst wurden. Durch die Verwendung von UML-Diagrammen und einzelnen Codeblöcken wird die Implementierung und bestimmte entscheidende Faktoren erläutert.
 
-Der Vollständigkeit halber ist es wichtig zu wissen, dass Sockets für die Kommunikation verwendet werden. Die genauen Schnittstellen und Kommunikationsprozesse werden erst in Kapitel 6.6 erläutert.
+Der Vollständigkeit halber ist es wichtig zu erwähnen, dass Sockets für die Kommunikation verwendet werden. Die genauen Schnittstellen und Kommunikationsprozesse werden in Kapitel 6.6 erläutert.
 
 ### Frontend
 
@@ -72,7 +70,7 @@ Für die Entwicklung der React-App wurden zunächst Mocks erstellt. Die Benutzer
 
 Der Startbildschirm der Web-App besteht aus fünf Feldern, die die identifizierten Insassen und ihre Position anzeigen. Außerdem gibt es eine Navigationsleiste am oberen Rand des Bildschirms, die einen Menüreiter enthält, über den der Benutzer verschiedene Funktionen ausführen kann. Darüber hinaus gibt es eine Start-/Stop-Taste, mit der die Insassenerkennung im Fahrzeug aktiviert bzw. deaktiviert wird. Die Navigationsleiste ist persistent und kann auf jeder Seite der Web-App gefunden werden. Am unteren Rand des Bildschirms befindet sich eine Statusleiste, die den aktuellen Verbindungsstatus mit dem Backend, dem GPU-Backend und der Incar anzeigt. Das aktuell ausgewählte ML-Modell wird ebenfalls angezeigt. Die Statusleiste ist auch persistent.
 
-Über das Menü kann der Benutzer auf die Seite "View Speakers" zugreifen, auf der alle aktuell aufgezeichneten Sprecher oder, in Bezug auf ML, die Identifikationsklassen für die Inferenz aufgelistet sind. Hier ist es möglich, Sprecher zu entfernen.
+Über das Menü kann der Benutzer auf die Seite "View Speakers" zugreifen, auf der alle aktuell aufgezeichneten Sprecher oder, in Bezug auf ML, die Identifizierungsklassen für die Klassifizierung aufgelistet sind. Hier ist es möglich, Sprecher zu entfernen.
 
 Ein weiterer Menüpunkt ist "Add Speaker", wo ein Sprecher hinzugefügt werden kann. Der Nutzer hat die Möglichkeit, einen beliebigen Artikel als Lesematerial zu wählen. Über eine Taste werden die Mikrofonberechtigungen vom Browser erteilt und die Aufnahme kann erfolgen. Im Anschluss kann die Aufzeichnung nochmals angehört und ein Sprechername eingegeben werden. Die Daten können nun an das Backend gesendet werden.
 
@@ -131,9 +129,9 @@ const stopRecording = () => {
 
 Die Seite "Train Model" ermöglicht es dem Benutzer, das Training auf dem GPU-Backend zu starten. Hier kann auch die Anzahl der Epochen für das Training festgelegt werden, wobei 100 Epochen voreingestellt sind. Ein Icon zeigt den Status des Trainingsprozesses an, bei erfolgreichem Training wird ein grüner Haken angezeigt und das neue Modell in der Statusleiste am unteren Rand angezeigt.
 
-Die Bildschirmaufnahmen des beschriebenen Frontends sind im Anhang 1 zu finden. Um das Frontend funktional im Browser darzustellen, wurde ein Revrse Proxy mit Nginx verwendet. Somit können ebenfalls Anfragen direkt an das Backend weitergeleitet werden. Außerdem wird der Datenverkehr über HTTPS umgeleitet, da einige Browser eine Mikrofonberechtigung nur über eine SSL-Terminierung zulassen.
+Die Bildschirmaufnahmen des beschriebenen Frontends sind im Anhang 1 zu finden. Um das Frontend funktional im Browser darzustellen, wurde ein Reverse Proxy mit Nginx verwendet. Somit können ebenfalls Anfragen direkt an das Backend weitergeleitet werden. Außerdem wird der Datenverkehr über HTTPS umgeleitet, da einige Browser eine Mikrofonberechtigung nur über eine SSL-Terminierung zulassen.
 
-Im folgenden sind die Wichtigsten Konfigurationseinstellungen für den Nginx-Reverse-Proxy aufgeführt:
+Im Folgenden sind die wichtigsten Konfigurationseinstellungen für den Nginx-Reverse-Proxy aufgeführt:
 
 ```nginx
 http {
@@ -174,7 +172,7 @@ Das Backend wurde in Python 3.11.6 implementiert. Wie bereits erwähnt, ist das 
 
 #### Zustand des Backends
 
-Globale Variablen werden definiert, um den aktuellen Zustand des Systems zu verfolgen und um Fehler abzufangen, z.B. wenn eine Komponente nicht läuft. Insbesondere zeigen die Booleans `recognition_status` an, ob die Fahrzeugidentifikation aktiv ist, `connected_incar` signalisiert eine bestehende Verbindung zur Incar-Komponente und `connected_ML` gibt an, ob eine Verbindung zum GPU-Backend besteht. 
+Globale Variablen werden definiert, um den aktuellen Zustand des Systems zu verfolgen und um Fehler abzufangen, z.B. wenn eine Komponente nicht läuft. Insbesondere zeigen die Booleans `recognition_status` an, ob die FahrzeugIdentifizierung aktiv ist, `connected_incar` signalisiert eine bestehende Verbindung zur Incar-Komponente und `connected_ML` gibt an, ob eine Verbindung zum GPU-Backend besteht. 
 
 Für die Verwaltung der Zustände der Sprecher, der gespeicherten Modelle und der identifizierten Sprecher, die im Frontend angezeigt werden, werden JSON-Objekte verwendet. Der Vorteil von JSON-Objekten ist, dass dieses Format plattformunabhängig ist und von jeder Komponente gelesen werden kann. Die Unterstützung von Arrays in JSON-Objekten ist ebenfalls nützlich, um pro Objekt unterschiedliche Daten zu speichern. Der folgende Auszug aus der Datei `speaker.json` zeigt ein Beispiel:
 
@@ -221,15 +219,13 @@ Der obige Codeausschnitt verdeutlicht, wie eine Verbindung zur Webanwendung herg
 
 Nachdem alle Sprecherdaten erfasst und die Sprecherliste gepflegt wurde, kann das Modell trainiert werden.
 
-Alle im `speakers.json` vermerkten Sprecher werden zusammen mit der Anzahl der Epochen über den Socket an das GPU-Backend gesendet und dort verarbeitet. Das Frontend wird informiert, dass die Daten gesendet wurden. Wenn das GPU-Backend das Training beendet hat, wird das Modell an das Backend zurückgesendet, wobei zu beachten ist, dass ein Modell in der Regel ca. 40 MB groß ist und daher in kleinere Pakete aufgeteilt und gesendet wird. Diese werden vom Backend mit einem ACK (Acknowledgement, engl. Bestätigung) bestätigt. Nachdem das letzte Paket gesendet wurde, erhält das Backend alle Informationen zu diesem Modell, die in einem JSON-Objekt gespeichert sind.
+Alle im `speakers.json` vermerkten Sprecher werden zusammen mit der Anzahl der Epochen über den Socket an das GPU-Backend gesendet und dort verarbeitet. Das Frontend wird informiert, dass die Daten gesendet wurden. Wenn das GPU-Backend das Training beendet hat, wird das Modell an das Backend zurückgesendet, wobei zu beachten ist, dass ein Modell in der Regel ca. 40 MB groß ist und daher in kleinere Pakete aufgeteilt und gesendet wird. Diese werden vom Backend mit einer ACK bzw. Nachricht bestätigt. Nachdem das letzte Paket gesendet wurde, erhält das Backend alle Informationen zu diesem Modell, die in einem JSON-Objekt gespeichert sind.
 
-Wenn das Modell eine Genauigkeit von mehr als (TODO) 95% und einen Loss von (TODO) xx% hat, wird es als neues Modell festgelegt. In diesem Fall wird dem Frontend ebenfalls mitgeteilt, dass das Modell erfolgreich trainiert wurde und nun das neue Modell verwendet wird.
+Wenn das Modell in der Validierung eine Genauigkeit von mehr als 95% und einen Verlust von weniger als 10% hat, wird es als neues Modell verwendet. In diesem Fall wird dem Frontend ebenfalls mitgeteilt, dass das Modell erfolgreich trainiert wurde und nun das neue Modell zur Verfügung steht.
 
-#### Inferenzprozess
+#### Klassifikationsverfahren
 
-Der Inferenzprozess wird vom Backend gesteuert. Dies erfordert einen gut durchdachten Algorithmus, um die Sprecher korrekt zu identifizieren. Wenn im Frontend die "Start Recognition" Taste betätigt wird, sendet das Backend eine Nachricht an die Incar und das aktuelle Modell wird mittels Keras geladen. Vorausgesetzt ist dass die Incar-Komponente verbunden ist. Ab diesem Zeitpunkt sendet die Incar die Audiodaten an das Backend. Diese Audiodaten werden in einem temporären Verzeichnis gespeichert und indiziert. Im Anhang 2 befindet sich ein UML Sequenzdiagramm der Schnittstelle zwischen dem Backend und der Incar Komponente. 
-
-(TODO: Eine Andere Methode geht aufnahme für aufnahme durch und holt diese inferenz. Diese ausgabe der Inferenz werden in einem JSOn Object gespeichert falls die Confidence über 70%. …)
+Die Klassifizierung wird vom Backend angesteuert. Dies erfordert einen gut durchdachten Algorithmus, um die Sprecher korrekt zu identifizieren. Wenn im Frontend die "Start Recognition" Taste betätigt wird, sendet das Backend eine Nachricht an die Incar und das aktuelle Modell wird mittels Keras geladen. Vorausgesetzt ist dass die Incar-Komponente verbunden ist. Ab diesem Zeitpunkt sendet die Incar die Audiodaten an das Backend. Diese Audiodaten werden in einem temporären Verzeichnis gespeichert und indiziert. Im Anhang 2 befindet sich ein UML-Sequenzdiagramm der Schnittstelle zwischen dem Backend und der Incar Komponente. 
 
 ### GPU-Backend
 
@@ -237,7 +233,7 @@ Die GPU-beschleunigte Backend-Infrastruktur ist ebenfalls in Python implementier
 
 #### Vorbereitung der Trainingsdaten
 
-Das Backend sendet alle Audiodaten, die trainiert werden sollen, und erstellt eine neue Verzeichnisstruktur für den Datensatz, in der alle gesendeten Audiodaten abgelegt werden. Mit Hilfe der "Pydub"-Bibliothek [@pydub] und des Werkzeugs "FFmpeg" [@ffmpeg] wird aus den Audiodaten AudioSegmente erzeugt, die eine nachträgliche Anpassung der Samplerate auf 16000 Hz ermöglicht. FFmpeg ist eine leistungsfähige Softwarelösung zur Bearbeitung von Multimediadaten. Es ermöglicht die Konvertierung von Dateiformaten, die Anpassung von Sampleraten und bietet eine Vielzahl von Funktionen zur Audio- und Videobearbeitung. In diesem Fall werden die Audioaufnahmen in Segmente mit einer Länge von jeweils einer Sekunde aufgeteilt. In der Praxis bedeutet dies, dass eine Audiodatei mit einer Länge von einer Minute in 60 einzelne Audiosegmente zerlegt wird. Diese einzelnen Segmente werden als WAV-Dateien in einem eigenen Verzeichnis pro Sprecher gespeichert.
+Das Backend sendet alle Audiodaten, die trainiert werden sollen, und erstellt eine neue Verzeichnisstruktur für den Datensatz, in der alle gesendeten Audiodaten abgelegt werden. Mit Hilfe der "Pydub"-Bibliothek [@pydub] und des Werkzeugs "FFmpeg" [@ffmpeg] werden aus den Audiodaten AudioSegment-Objekte erzeugt, die eine nachträgliche Anpassung der Samplerate auf 16000 Hz ermöglicht. FFmpeg ist eine leistungsfähige Softwarelösung zur Bearbeitung von Multimediadaten. Es ermöglicht die Konvertierung von Dateiformaten, die Anpassung von Sampleraten und bietet eine Vielzahl von Funktionen zur Audio- und Videobearbeitung. In diesem Fall werden die Audioaufnahmen in Segmente mit einer Länge von jeweils einer Sekunde aufgeteilt. In der Praxis bedeutet dies, dass eine Audiodatei mit einer Länge von einer Minute in 60 einzelne Audiosegmente zerlegt wird. Diese einzelnen Segmente werden als WAV-Dateien in einem eigenen Verzeichnis pro Sprecher gespeichert.
 
 Im nächsten Schritt werden Hintergrundgeräusche für das Training präpariert, indem sie mit den Trainingsdaten überblendet werden, um mögliche Störgeräusche bei der Erkennung zu minimieren. Bei diesen Hintergrundgeräuschen handelt es sich sowohl um weißes Rauschen als auch um Fahrgeräusche, die beispielsweise durch das Überfahren von Bodenwellen oder das Abspielen leiser Musik im Hintergrund entstehen. Mit der Methode `add_noise()` werden die Geräusche verhältnismäßig zu den Audiosegmenten hinzugefügt.
 Die Integration von Hintergrundgeräuschen erhöht die Robustheit des Modells, da es dadurch besser in der Lage ist, relevante Sprachmerkmale auch unter schwierigen akustischen Bedingungen zu erkennen. Dieser Ansatz erweitert nicht nur den Trainingsdatensatz, sondern trägt auch dazu bei, die Varianz der Daten zu erhöhen und Overfitting zu vermeiden. Overfitting bedeutet, dass ein Modell während des Trainings zu stark an die spezifischen Merkmale und Muster der Trainingsdaten angepasst wird. Das Modell passt sich so genau an die Trainingsdaten an, dass es Schwierigkeiten hat, verallgemeinerbare und zuverlässige Vorhersagen für neue, noch nicht gesehene Daten zu machen. [@deep_learning_projects]
@@ -248,13 +244,13 @@ Nach diesen Vorbereitungen ist der Datensatz einsatzbereit und kann für das Tra
 
 #### Aufbau des Modells
 
-Die Modellentwicklung erfolgt mit Hilfe der Keras-Bibliothek, einer Open-Source-Deep-Learning-Bibliothek, die seit TensorFlow 2.0 als High-Level-API offiziell in TensorFlow eingebunden ist. Keras ermöglicht es Entwicklern, neuronale Netze effizient zu entwerfen, zu trainieren und zu evaluieren. Das hier verwendete Modell wurde von Fadi Badine in der Keras-Dokumentation als Beispiel vorgestellt. [@keras_speaker_recognition]
+Die Modellentwicklung erfolgt mit Hilfe der Keras-Bibliothek, einer Open-Source Deep-Learning-Bibliothek, die als High-Level-API offiziell in TensorFlow eingebunden ist. Keras ermöglicht es Entwicklern, neuronale Netze effizient zu entwerfen, zu trainieren und zu evaluieren. Das hier verwendete Modell wurde von Fadi Badine in der Keras-Dokumentation als Beispiel vorgestellt. [@keras_speaker_recognition]
 
 Dieses spezifische Modell unterstützt die Klassifizierung von Sprechern auf der Grundlage der Frequenzbereichsdarstellung von Sprachaufnahmen, die durch die Verwendung der Fast Fourier Transform (FFT) gewonnen wird. Das Modell selbst wird durch ein eindimensionales Konvolutionsnetzwerk mit Residualverbindungen erzeugt, das speziell auf die Anforderungen der Audio-Klassifikation zugeschnitten ist.
 
 TODO Bild des Visual Keras
 
-Die Abbildung xx wurde mithilfe der Visualisierungsbibliothek "visualkeras" erstellt und illustriert die Struktur des Modells, insbesondere den Aufbau der verschiedenen Schichten. Eine detailliertere Version des Modells ist im Anhang 3 zu finden.
+Die Abbildung xx wurde mit Hilfe der Visualisierungsbibliothek "visualkeras" erstellt und illustriert die Struktur des Modells, insbesondere den Aufbau der verschiedenen Schichten. Eine detailliertere Version des Modells ist im Anhang 3 zu finden.
 
 Bei der Implementierung kommt ein Convolutional Neural Network (CNN) zum Einsatz, das auf den so genannten "residual blocks" basiert. Diese speziellen Blöcke wurden in Residual Networks (ResNet) eingeführt, um das Problem des verschwindenden Gradienten während des Trainings zu lösen. [@deep_learning_projects] Jeder Residualblock besteht aus einer Shortcut-Verbindung und mehreren Faltungsebenen. Die Shortcut-Verbindung ermöglicht die direkte Ausbreitung des Gradienten und erleichtert somit das Training tiefer Netzwerke.
 
@@ -286,11 +282,11 @@ history = model.fit(
 [...]
 ```
 
-Nach Abschluss des Trainings wird das Modell mit der Dateiendung `.keras` gespeichert, zusätzlich werden alle Informationen zum Modell im JSON-Format angehängt. Anschließend wird das Modell zusammen mit den Informationen an das Backend gesendet. Dieser Vorgang wurde bereits in Kapitel 6.5.2.2 beschrieben.
+Nach Abschluss des Trainings wird das Modell mit der Dateiendung `.keras` gespeichert und zusätzlich werden alle Informationen zum Modell im JSON-Format angehängt. Anschließend wird das Modell zusammen mit den Informationen an das Backend gesendet. Dieser Vorgang wurde bereits in Kapitel 6.5.2.2 beschrieben.
 
 ### Incar Komponente
 
-Die Incar-Komponente, die sich im Fahrzeug befindet, ist ebenfalls in Python geschrieben. Hier soll der Ressourcenverbrauch gering gehalten werden.
+Die Incar-Komponente, die sich im Fahrzeug befindet, ist ebenfalls in Python geschrieben. Hier soll der Ressourcenverbrauch geringgehalten werden.
 
 #### Kalibrierung der Mikrofone
 
@@ -318,7 +314,7 @@ Im Anhang xx TODO ist der Kalibrierungsprozess mit zwei Mikrofone dargestellt.
 
 #### Aufnahme und Verarbeitung der Audiodaten
 
-Nach der Kalibrierung wird eine Verbindung zum Backend hergestellt und ein Thread erzeugt, der für die Audioaufnahme verantwortlich ist. Dieser Thread startet eine Endlosschleife, die darauf wartet, dass ein "recognition_event" Event (engl. Ereignis) ausgelöst wird, welches im unteren Codeabschnitt zu sehen ist. Dieses Event wird vom Backend ausgelöst, wenn der Anwender die Sprecher Identifizierung aktiviert.
+Nach der Kalibrierung wird eine Verbindung zum Backend hergestellt und ein Thread erzeugt, der für die Audioaufnahme verantwortlich ist. Dieser Thread startet eine Endlosschleife, die darauf wartet, dass ein "recognition_event" Event (Ereignis) ausgelöst wird, welches im unteren Codeabschnitt zu sehen ist. Dieses Event wird vom Backend ausgelöst, wenn der Anwender die Sprecher Identifizierung aktiviert.
 
 ```python
 def recognition():
@@ -332,13 +328,13 @@ def recognition():
 
 Bei der Aufnahme der Sprachdaten ist zu beachten, dass alle kalibrierten Mikrofone gleichzeitig aufgenommen werden. Dies ermöglicht die individuelle Isolierung von Stimmen, auch wenn mehrere Insassen gleichzeitig sprechen. Zusätzlich eröffnet diese Vorgehensweise die Möglichkeit zur Lokalisierung der Insassen anhand des Vergleichs der Dezibel Werte.
 
-Für die Aufnahme der einzelnen Mikrofone werden weitere Aufnahme-Threads verwendet, die eine parallele Aufnahme ermöglichen. Die Bibliothek "Sounddevice" stellt einen Datenstrom vom Mikrofon zu verfügung und ein weiterer Thread speichert den Datenstrom in eine WAV-Datei. Nach der Aufnahme aller Mikrofone werden die gesicherten Daten per Socket an das Backend gesendet, zusammen mit einer fortlaufenden Nummer, die es ermöglicht, den Stand im Fahrzeug mit dem Stand im Backend zu vergleichen.
+Für die Aufnahme der einzelnen Mikrofone werden weitere Aufnahme-Threads verwendet, die eine parallele Aufnahme ermöglichen. Die Bibliothek "Sounddevice" stellt einen Datenstrom vom Mikrofon zur Verfügung und ein weiterer Thread speichert den Datenstrom in eine WAV-Datei. Nach der Aufnahme aller Mikrofone werden die gesicherten Daten per Socket an das Backend gesendet, zusammen mit einer fortlaufenden Nummer, die es ermöglicht, den Stand im Fahrzeug mit dem Stand im Backend zu vergleichen.
 
-Die Aufzeichnung der Mikrofone erfolgt in festgelegten Zeitintervallen alle drei TODO Sekunden für die Dauer von zwei TODO Sekunden. Diese gestaffelte Aufzeichnung stellt sicher, dass das Backend genügend Zeit hat, die Audiodaten zu verarbeiten, bevor der nächste Zyklus von der Incar-Komponente gesendet wird. Eine Erweiterung besteht darin, den Zyklus dynamisch an die Verbindungsgeschwindigkeit des Mobilfunknetzes anzupassen. Dadurch kann eine Überlastung des Netzes vermieden werden.
+Die Aufzeichnung der Mikrofone erfolgt in festgelegten Zeitintervallen, welche im Kapitel 6.1.2 bestimmt werden. Diese gestaffelte Aufzeichnung stellt sicher, dass das Backend genügend Zeit hat, die Audiodaten zu verarbeiten, bevor der nächste Zyklus von der Incar-Komponente gesendet wird. Eine Erweiterung besteht darin, den Zyklus dynamisch an die Verbindungsgeschwindigkeit des Mobilfunknetzes anzupassen. Dadurch kann eine Überlastung des Netzes vermieden werden.
 
 ## Zusammensetzung und Schnittstellen
 
-Die implementierte Lösung besteht aus verschiedenen Komponenten, die mit dem Backend kommunizieren und Daten austauschen, teilweise sogar gleichzeitig. Wie bereits erläutert, erfolgt die Kommunikation hauptsächlich über Sockets.
+Die implementierte Lösung besteht aus verschiedenen Komponenten, die mit dem Backend kommunizieren und teilweise gleichzeitig Daten austauschen. Wie bereits erläutert, erfolgt die Kommunikation hauptsächlich über Sockets.
 
 Sockets ermöglichen eine Echtzeitkommunikation zwischen den einzelnen Komponenten, was insbesondere in Anwendungsfällen wie der Incar-Komponente von entscheidender Bedeutung ist. Dort ist eine schnelle und effiziente Datenübertragung mit geringer Latenz erforderlich. Durch die Möglichkeit der Full-Duplex-Kommunikation können Nachrichten in beide Richtungen gleichzeitig ausgetauscht werden, was die Leistungsfähigkeit und Reaktionsschnelligkeit der Gesamtsystemarchitektur erhöht. Ein weiterer Vorteil von Sockets ist, dass sie plattformunabhängig sind und somit zuverlässig in verschiedenen Komponenten eingesetzt werden können. [@sockets]
 

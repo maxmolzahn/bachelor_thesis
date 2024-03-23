@@ -2,7 +2,7 @@
   Zentrale Variablen:
   Workaround bzw. Rückgriff auf LaTex-Befehle, um zentrale Werte immer wieder verwenden zu können.
 -->
-\newcommand{\titel}{Innovative Lösungsstrategien für die Personenidentifikation im Fahrzeug: Evaluierung, Auswahl und prototypische Umsetzung mit vorhandener Fahrzeugtechnologie.}
+\newcommand{\titel}{Innovative Lösungsstrategien für die Personenidentifizierung im Fahrzeug: Evaluierung, Auswahl und prototypische Umsetzung mit vorhandener Fahrzeugtechnologie.}
 \newcommand{\datum}{15.03.2024}
 
 \newcommand{\aVorname}{Maximilian}

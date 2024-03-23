@@ -14,6 +14,6 @@ TexHack: Überschrift und richtige Seitenzahl werden durch die obige Überschrif
 \listoffigures
 
 \pagenumbering{roman}
-\setcounter{page}{3}
+\setcounter{page}{5}
 
 \newpage
