@@ -8,7 +8,7 @@ Personalisierung ist ein zentrales Thema im Bereich der sozialen Medien, aber wi
 
 ## Motivation
 
-Die Integration von Insassenidentifizierungssystemen in Fahrzeugen eröffnet zahlreiche Anwendungsmöglichkeiten für ein personalisiertes Fahrerlebnis. Dieses ermöglicht, die individuellen Bedürfnisse und Vorlieben der Fahrzeuginsassen zu erkennen und entsprechende Anpassungen vorzunehmen. 
+Die Integration von Insassenidentifizierungssystemen in Fahrzeugen eröffnet zahlreiche Anwendungsmöglichkeiten für ein personalisiertes Fahrerlebnis. Dieses ermöglicht die individuellen Bedürfnisse und Vorlieben der Fahrzeuginsassen zu erkennen und entsprechende Anpassungen vorzunehmen. 
 
 Ein praktisches Beispiel hierfür ist die gemeinsame Nutzung eines Fahrzeugs durch eine vierköpfige Familie. Angenommen, die Mutter nimmt auf dem Beifahrersitz Platz – die Insassenidentifizierung könnte automatisch die Klimaautomatik auf ihre bevorzugte Temperatur einstellen. Sobald der Sohn das Steuer übernimmt, passt das System die Fahrzeugleistung an, um den Fahrstil eines jungen und weniger erfahrenen Fahrers zu berücksichtigen. Gleichzeitig kann das Unterhaltungssystem im Fond des Fahrzeugs auf die Interessen der Tochter auf der Rückbank abgestimmt werden. Bei Fahrten, bei denen nur die Eltern anwesend sind, könnte das System sogar automatisch die bevorzugte Musik auswählen, um eine angenehme Atmosphäre zu schaffen.
 
@@ -26,11 +26,11 @@ Dabei stellt diese Arbeit einen konzeptionellen Ansatz dar und verfolgt nicht da
 
 ## Problemstellung und Zielsetzung
 
-Die Einführung von Identifizierungstechnologie im Fahrzeugkontext ist zwangsläufig mit verschiedenen Herausforderungen verbunden. Ein zentraler Aspekt ist der Datenschutz, da es sich bei der Verarbeitung von personenbezogenen Daten um sensible Informationen handelt. Die Gewährleistung eines sicheren und rechtskonformen Umgangs mit diesen Daten ist unerlässlich.
+Die Einführung von Identifizierungstechnologien im Fahrzeugkontext ist zwangsläufig mit verschiedenen Herausforderungen verbunden. Ein zentraler Aspekt ist der Datenschutz, da es sich bei der Verarbeitung von personenbezogenen Daten um sensible Informationen handelt. Die Gewährleistung eines sicheren und rechtskonformen Umgangs mit diesen Daten ist unerlässlich.
 
 Die Zuverlässigkeit der Identifizierungsergebnisse ist ein weiteres Problemfeld, das sich insbesondere bei unterschiedlichen Umgebungs- und Nutzungsbedingungen ergeben kann. Die Benutzerfreundlichkeit ist ein entscheidender Faktor, da die Akzeptanz der Identifizierungsmethode weitgehend von ihrer Einfachheit und Effizienz abhängt. Ein übermäßiger Aufwand bei der Einrichtung der Methode kann die Benutzerfreundlichkeit beeinträchtigen und eine verbreitete Verwendung der Methode verhindern.
 
-Wie im Folgenden deutlich werden wird, ist die Identifizierung von Insassen in Fahrzeugen ein komplexes Thema, das mit verschiedenen Herausforderungen verbunden ist. Ziel dieser Arbeit ist daher die Untersuchung verschiedener Identifizierungsmethoden und die prototypische Umsetzung einer ausgewählten Methode. Es ist nicht das Ziel, ein voll funktionsfähiges System zu entwickeln, sondern einen Proof of Concept zu erstellen, der weitere Forschungen und Entwicklungen nach sich zieht.
+Wie im Folgenden erörtert wird, ist die Identifizierung von Insassen in Fahrzeugen ein komplexes Thema, das mit verschiedenen Herausforderungen verbunden ist. Ziel dieser Arbeit ist daher die Untersuchung verschiedener Identifizierungsmethoden und die prototypische Umsetzung einer ausgewählten Methode. Es ist nicht das Ziel, ein voll funktionsfähiges System zu entwickeln, sondern einen Proof of Concept (Wirksamkeitsnachweis) zu erstellen, der weitere Forschungen und Entwicklungen nach sich zieht.
 
 ## Forschungsfrage
 
@@ -38,7 +38,7 @@ Mit dem obigen Wissensstand ist es jetzt möglich eine Forschungsfrage zu defini
 
 **Wie kann die Insassenidentifizierung unter Berücksichtigung von Datenschutz, Nutzbarkeit und Funktionalität umgesetzt werden?**
 
-Die Forschungsmethodik umfasst die Implementierung eines Prototyps für die Insassenidentifizierung unter Verwendung moderner Technologien. Die Auswertung dieser Implementierung erfolgt anhand einiger Versuche, bei denen die Funktionalität, Sicherheit und Benutzerfreundlichkeit der Implementierung bewertet werden. Die Ergebnisse der Versuche werden in einem umfassenden Kontext betrachtet und diskutiert.
+Die Forschungsmethodik umfasst die Implementierung eines Prototyps für die Insassenidentifizierung unter Berücksichtigung der derzeit in Fahrzeugen eingesetzten Technologien. Die Auswertung dieser Implementierung erfolgt anhand von Versuchen, bei denen die Funktionalität, Datensicherheit und Benutzerfreundlichkeit der Implementierung bewertet werden. Die Ergebnisse der Versuche werden in einem umfassenden Kontext betrachtet und diskutiert.
 
 ## Aufbau der Arbeit
 

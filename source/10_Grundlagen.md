@@ -1,6 +1,6 @@
 # Grundlagen
 
-In diesem Kapitel werden die Grundlagen für die Identifizierung von Insassen in Fahrzeugen erläutert. Dabei wird eine aktuelle Marktanalyse durchgeführt um den Stand der Technologie bei Fahrzeugen der BMW Group zu ermitteln, als auch ein Vergleich zu anderen OEMs zu ziehen.
+In diesem Kapitel werden die Grundlagen für die Identifizierung von Insassen in Fahrzeugen erklärt. Dabei wird eine aktuelle Marktanalyse durchgeführt um sowohl den Stand der Technologie bei Fahrzeugen der BMW Group zu ermitteln, als auch ein Vergleich zu anderen OEMs zu ziehen.
 
 ## Definitionen und Begriffserklärungen
 
@@ -10,13 +10,13 @@ Zunächst werden einige zentrale Begriffe definiert, die im Kontext der Insassen
 
 Die Identifizierung einer Person ist ein komplexer Prozess, der verschiedene Aspekte umfasst und insbesondere im Hinblick auf Datenschutz von entscheidender Bedeutung ist. 
 
-Identifizierung: „jemanden/etwas meist an bestimmten Merkmalen (wieder)erkennen.“ [@definition_identifizierung]
+Identifizierung: „jemanden/etwas meist an bestimmten Merkmalen (wieder) erkennen.“ [@definition_identifizierung]
 
 Hierbei spielen Begriffe wie Authentisierung, Authentifizierung und Autorisierung eine Schlüsselrolle, welche auch häufig verwechselt werden.
 
 ### Authentisierung, Authentifizierung und Autorisierung
 
-Im Rahmen einer Authentisierung erbringt eine Person einen Beweis dafür, dass sie ist, wer sie zu sein vorgibt. Im Alltag geschieht dies z. B. durch die Vorlage des Personalausweises. In der IT wird hierfür häufig ein Passwort in Kombination mit einem Benutzernamen genutzt.
+Im Rahmen einer Authentisierung erbringt eine Person einen Beweis dafür, dass sie ist, wer sie zu sein vorgibt. Im Alltag geschieht dies zum Beispiel durch die Vorlage des Personalausweises. In der IT wird hierfür häufig ein Passwort in Kombination mit einem Benutzernamen genutzt.
 
 Authentifizierung ist der spezifischere Prozess der Überprüfung der Identität eines Subjekts, normalerweise durch die Verwendung von Anmeldeinformationen wie Benutzername und Passwort, Fingerabdruck, RFID-Karte oder andere biometrische Merkmale.
 
@@ -30,7 +30,7 @@ Bei der prototypischen Entwicklung der Insassenidentifizierung ist es von besond
 
 ### Fahrerprofil
 
-Fahrerprofile sind personalisierte Einstellungen, die auf die individuellen Präferenzen und Bedürfnisse des Fahrers zugeschnitten sind. Diese Einstellungen können verschiedene Aspekte des Fahrzeugs umfassen, wie z. B. die Sitzposition, die Klimaeinstellungen, die Radiosender oder die Navigationseinstellungen. Die Verwendung von Fahrerprofilen ermöglicht es, das Fahrerlebnis zu personalisieren und den Komfort zu erhöhen. [@BMW_i4_bordliteratur]
+Fahrerprofile sind personalisierte Einstellungen, die auf die individuellen Präferenzen und Bedürfnisse des Fahrers zugeschnitten sind. Diese Einstellungen können verschiedene Aspekte des Fahrzeugs umfassen, wie zum Beispiel die Sitzposition, die Klimaeinstellungen, die Radiosender oder die Navigationseinstellungen. Die Verwendung von Fahrerprofilen ermöglicht es, das Fahrerlebnis zu personalisieren und den Komfort zu erhöhen. [@BMW_i4_bordliteratur]
 
 In den folgenden Kapiteln wird erläutert, wie verschiedene OEMs Fahrerprofile einbinden.
 
@@ -46,11 +46,16 @@ Bei der schlüsselbasierten Identifizierung wird die Identität einer Person anh
 
 Maschinelles Lernen (ML) ist ein Teilgebiet der künstlichen Intelligenz, bei dem Computer anhand von Eingabedaten und einer Reihe von Regeln, die ihnen zur Verfügung gestellt werden, lernen und sich in einer bestimmten Aufgabe verbessern. Um dies zu ermöglichen, werden spezielle Algorithmen, die auf mathematischer Optimierung und Rechenstatistik basieren, in einem komplexen System kombiniert. [@application_of_ai]
 
-Im Zusammenhang mit ML gibt es einige wichtige Begriffe. Grundsätzlich handelt es sich um die Entwicklung von Modellen, die aus Daten lernen, um Vorhersagen oder Entscheidungen zu treffen. Während des Trainingsprozesses werden diese Modelle mit Trainingsdaten trainiert, wobei die Modellparameter angepasst werden, um die Genauigkeit zu verbessern. Während des Trainings werden Metriken wie Validierungsverlust und Genauigkeit verwendet, um die Leistung des Modells zu bewerten. Der Validierungsverlust misst, wie gut das Modell auf neue Daten generalisiert, während die Genauigkeit den Prozentsatz der korrekten Vorhersagen angibt. Ein weiteres Schlüsselbegriff ist die Klassifikation, bei der das Modell die Daten in vordefinierte Kategorien oder Klassen einteilt. Diese Konzepte bilden die Grundlage für viele Anwendungen des maschinellen Lernens, von der Bilderkennung bis zur Sprachverarbeitung. 
+Im Zusammenhang mit ML gibt es einige wichtige Begriffe. Grundsätzlich handelt es sich um die Entwicklung von Modellen, die aus Daten lernen, um Vorhersagen oder Entscheidungen zu treffen. Während des Trainingsprozesses werden diese Modelle mit Trainingsdaten trainiert, wobei die Modellparameter angepasst werden, um die Genauigkeit zu verbessern. Während des Trainings werden Metriken wie Verlust und Genauigkeit verwendet, um die Leistung des Modells zu bewerten. Der Verlust misst die Abweichung zwischen der Vorhersage und der gewünschten Ausgabe, während die Genauigkeit den Prozentsatz der korrekten Vorhersagen angibt. Ein weiterer Schlüsselbegriff ist die Klassifikation, bei der das Modell die Daten in vordefinierte Kategorien oder Klassen einteilt. Diese Konzepte bilden die Grundlage für viele Anwendungen des maschinellen Lernens, von der Bilderkennung bis zur Sprachverarbeitung. 
 
-Ein häufig verwendetes Werkzeug für die Entwicklung solcher Modelle ist TensorFlow welches von Google entwickelt wurde [@tensorflow]. Im Rahmen der Implementierung in Kapitel 5 wird ML vertieft erläutert.
+Ein häufig verwendetes Werkzeug für die Entwicklung solcher Modelle ist TensorFlow welches von Google entwickelt wurde [@tensorflow]. Im Rahmen der Implementierung in Kapitel 4 wird ML vertieft erläutert.
 
-## Identifizierungstechnologien bei Fahrzeugen der BMW Group
+### Containerisierung
+
+Containerisierung ist eine Methode zur Bereitstellung und Ausführung von Anwendungen in isolierten Umgebungen, sogenannten Containern. Sie sind eine Art von Virtualisierung, die es ermöglicht, Anwendungen und ihre Abhängigkeiten in einer isolierten Umgebung auszuführen. Container bieten eine leichte und effiziente Möglichkeit, Anwendungen unabhängig von der unterliegenden Infrastruktur zu verpacken, zu verteilen und auszuführen. Ein bekanntes Containerisierungstool ist Docker, mit dem Entwickler Anwendungen in Containern erstellen und verwalten können. [@development_docker]
+
+\lhead{2.2.  IDENT. TECH. IN BMW-FAHRZEUGEN}
+## Identifizierungstechnologien in BMW-Fahrzeugen
 
 BMW-Kunden, die Fahrzeuge mit dem Betriebssystem "Operating System 7" oder einer neueren Version besitzen, haben Zugriff auf die Funktion der Fahrerprofile, die sogenannten BMW IDs. [@BMW_ID_FAQ_1] Diese Funktion ermöglicht es dem Fahrer, verschiedene Einstellungen zu synchronisieren, um ein individuelles Fahrerlebnis zu schaffen. Zu den synchronisierbaren Einstellungen gehören:
 
@@ -59,11 +64,11 @@ BMW-Kunden, die Fahrzeuge mit dem Betriebssystem "Operating System 7" oder einer
 * Medien (gespeicherte Radiosender)
 * iDrive (Konfiguration des Hauptmenüs, Sprache, Einheiten)
 * Sprachassistent (Vorschläge, Aktivierungswort)
-* Außenbelichtung
+* Außenbeleuchtung
 * Sitzposition und Klimaeinstellungen
 * Datenschutz Einstellungen. [@BMW_i4_bordliteratur]
 
-Diese Funktionalität bietet Fahrern die Möglichkeit, das Fahrzeug an die persönlichen Vorlieben anzupassen, selbst wenn mehrere Nutzer das Fahrzeug teilen. Für das „Operating System 7“ können bis zu drei Fahrerprofile gespeichert werden. Im neueren „Operating System 8“ kann ein Hauptnutzer und bis zu sechs zusätzliche Mitnutzer ihre individuellen Fahrerprofile speichern. [@BMW_ID_FAQ_2]
+Diese Funktionalität bietet Fahrern die Möglichkeit, das Fahrzeug an die persönlichen Vorlieben anzupassen, selbst wenn mehrere Nutzer das Fahrzeug teilen. Im „Operating System 7“ können bis zu drei Fahrerprofile gespeichert werden. Im neueren „Operating System 8“ kann ein Hauptnutzer und bis zu sechs zusätzliche Mitnutzer ihre individuellen Fahrerprofile speichern. [@BMW_ID_FAQ_2]
 
 Trotz der Vorteile dieser Funktion stellt sich die Frage nach der Aktivierung einer BMW ID im Fahrzeug, insbesondere bezüglich der Datensicherheit, da es sich dabei durchaus um personenbezogene Daten handeln kann. Es stellt sich auch die Frage, ob die BMW ID auf den Fahrer beschränkt ist oder ob auch andere Insassen diese Funktion nutzen können.
 
@@ -85,36 +90,34 @@ Diese Beschränkung kann in bestimmten Szenarien als herausfordernd wahrgenommen
 
 ### Bewertung der vorhandenen Identifizierungsmethoden
 
-Das Konzept der Fahrerprofile in BMW-Fahrzeugen mit einem bekannten Fahrerkreis und deren Verknüpfung mit dem Fahrzeugschlüssel ist eine gut durchdachte und effektive Lösung. Die Verknüpfung mit einem physischen Schlüssel sorgt für eine automatische Authentifizierung des Fahrers und damit für ein individuelles Fahrerlebnis. Dies ist besonders vorteilhaft für Familien oder begrenzte Gruppen von Nutzern, die regelmäßig dasselbe Fahrzeug verwenden.
+Das Konzept der Fahrerprofile in BMW-Fahrzeugen mit einem bekannten Fahrerkreis und deren Verknüpfung mit dem Fahrzeugschlüssel ist eine und effektive Lösung. Die Verknüpfung mit einem physischen Schlüssel sorgt für eine automatische Authentifizierung des Fahrers und damit für ein individuelles Fahrerlebnis. Dies ist besonders vorteilhaft für Familien oder begrenzte Gruppen von Nutzern, die regelmäßig dasselbe Fahrzeug verwenden.
 
-Jedoch ergibt sich eine gewisse Einschränkung dieses Konzepts, wenn das Fahrzeug ausgeliehen wird, insbesondere bei Carsharing-Modellen, bei denen verschiedene Fahrer unterschiedliche Fahrzeuge nutzen wollen. Das vorliegende Konzept ist in solchen Szenarien weniger flexibel und zu Komplikationen führen.
+Jedoch ergibt sich eine gewisse Einschränkung dieses Konzepts, wenn das Fahrzeug ausgeliehen wird, insbesondere bei Carsharing-Modellen, bei denen verschiedene Fahrer unterschiedliche Fahrzeuge nutzen wollen. Das vorliegende Konzept ist in solchen Szenarien weniger flexibel und kann zu Komplikationen führen.
 
 Die nicht gegebene Möglichkeit für weitere Fahrzeuginsassen, sich zu authentifizieren, ist eine klare Limitierung. Bei der Nutzung durch verschiedene Personen bleibt das System primär auf den individuellen Fahrer beschränkt, der in das Fahrzeug mit seinem persönlichen Schlüssel einsteigt.
 
 ### Fazit
 
-Insgesamt zeigt sich, dass die BMW ID mit etablierten Fahrern und Schlüsselkopplung für bestimmte Nutzungsszenarien effektiv ist. Sie bietet ein personalisiertes und komfortables Fahrerlebnis. Allerdings können alternative Lösungen oder Anpassungen des Konzepts für die InsassenIdentifizierung in Sonderfälle wie Carsharing erforderlich sein, wo Flexibilität gefragt ist. Die Möglichkeit, auch Mitfahrer zu authentifizieren und ihre individuellen Einstellungen zu berücksichtigen, könnte das Fahrerlebnis weiter verbessern und künftige Anforderungen an die Fahrzeugpersonalisierung erfüllen.
+Insgesamt zeigt sich, dass die BMW ID mit etablierten Fahrern und Schlüsselkopplung für bestimmte Nutzungsszenarien effektiv ist. Sie bietet ein personalisiertes und komfortables Fahrerlebnis. Allerdings können alternative Lösungen oder Anpassungen des Konzepts für die Insassenidentifizierung in Sonderfälle wie Carsharing erforderlich sein, wo Flexibilität gefragt ist. Die Möglichkeit, auch Mitfahrer zu authentifizieren und ihre individuellen Einstellungen zu berücksichtigen, könnte das Fahrerlebnis weiter verbessern und künftige Anforderungen an die Fahrzeugpersonalisierung erfüllen.
 
+\lhead{2.3.  IDENT. TECH. ANDERER AUTOMOBILHERSTELLER}
+## Identifizierungstechnologien anderer Automobilhersteller
 
-## Identifizierungstechnologien bei Fahrzeugen anderer Automobilhersteller
-
-Die Automobilindustrie hat in den letzten Jahren rasante Fortschritte bei innovativen Technologien gemacht. Diese haben das Ziel das Fahrerlebnis weiter verbessern. Neue Technologien spielen eine entscheidende Rolle bei der personalisierten Fahrzeugnutzung und tragen zu mehr Komfort und Sicherheit bei. Dieses Kapitel wirft einen Blick auf Identifizierungstechnologien in Fahrzeugen anderer Hersteller und konzentriert sich dabei auf den Vergleich zwischen den OEMs und die zukünftige Bedeutung der InsassenIdentifizierung.
+Die Automobilindustrie hat in den letzten Jahren rasante Fortschritte bei innovativen Technologien gemacht. Diese haben das Ziel das Fahrerlebnis weiter zu verbessern. Neue Technologien spielen eine entscheidende Rolle bei der personalisierten Fahrzeugnutzung und tragen zu mehr Komfort und Sicherheit bei. Dieses Kapitel wirft einen Blick auf verschiedene Identifizierungstechnologien in Fahrzeugen anderer Hersteller und konzentriert sich dabei auf den Vergleich zwischen den OEMs und die zukünftige Bedeutung der Insassenidentifizierung.
 
 Die Automobilindustrie ist von Natur aus wettbewerbsorientiert, und die Rivalität zwischen den OEMs hat zu ständigen Innovationen geführt. Ein wichtiger Einflussfaktor in der Automobilindustrie ist der wachsende Einfluss der asiatischen OEMs. Unternehmen aus Asien, insbesondere aus China, sind zu wichtigen Akteuren auf dem Weltmarkt geworden. Ihr Engagement für innovative Fahrzeugtechnologien hat die Dynamik der Branche erheblich beeinflusst und trägt dazu bei, neue Standards für fortschrittliche Fahrzeugtechnologien zu setzen. [@automobilindustrie_und_mobilität_in_china]
 
 ### Auswertung der Recherche
 
-Die Konkurrenz zwischen Automobilherstellern zwingt Entwickler neue Technologien voranzubringen, um an der Marktspitze mithalten zu können. In diesem Zusammenhang ist es von großem Interesse, die Ansätze verschiedener OEMs zu untersuchen und zu vergleichen. Diese Analyse verdeutlicht die Betrachtung von InsassenIdentifizierungstechnologien und die wachsende Bedeutung dieses Bereichs für die Zukunft der Automobilbranche. Sie unterstreicht die Notwendigkeit weiterer Forschung zur Fahrzeugpersonalisierung.
+Die Konkurrenz zwischen Automobilherstellern zwingt Entwickler neue Technologien voranzubringen, um an der Marktspitze mithalten zu können. In diesem Zusammenhang ist es von großem Interesse, die Ansätze verschiedener OEMs zu untersuchen und zu vergleichen. Diese Analyse verdeutlicht die Betrachtung von Insassenidentifizierungstechnologien und die wachsende Bedeutung dieses Bereichs für die Zukunft der Automobilbranche. Sie unterstreicht die Notwendigkeit weiterer Forschung zur Fahrzeugpersonalisierung.
 
 **Tesla**, ein Pionier der Elektromobilität, bietet eine ähnliche Funktionalität wie BMW durch die Verknüpfung von Fahrerprofilen über einen physischen Schlüssel, in diesem Fall eine Schlüsselkarte. Allerdings bleibt die Identifizierung auf den Fahrer beschränkt, ohne zusätzliche Insassenerkennung. [@tesla_recherche]
 
-**Volkswagen** und dessen Tochterunternehmen setzten ebenfalls auf Fahrerprofile, um bestimmte Funktionen zu synchronisieren. Unternaderem bietet das Volkswagen ID Fahrern die möglichkeit ihre Profile zu speichern und zu synchronisieren. [@vw_recherche] Die Tochtergesellschaft **Audi** hat mit verschiednen Konzepte für eine Fingerabdruck basiertes Schlüsselsystem experimentiert. "[...] setzt Audi künftig als erster Hersteller auf den Fingerabdruck" [@audi_recherche]. Dieser Artikel aus der Zeitung Die Welt aus dem Jahr 2001 zeigt, dass Audi mit dem Audi A8 ein neues Schlüsselsystem eingeführt hat, das auf der Erkennung von Fingerabdrücken basiert. Dieses System ermöglicht es dem Fahrer, das Fahrzeug ohne physischen Schlüssel zu entriegeln und zu starten. Diese Technologie wird in aktuellen Modellen nicht mehr verwendet und ist auf den offiziellen Audi-Webseiten nicht mehr aufgeführt. **Mercedes-Benz** bietet in einigen neueren Fahrzeugmodellen ebenfalls einen Fingerabdrucksensor an, mit dem Funktionen des Infotainmentsystems aktiviert werden können. Mit dieser Funktion kann das Fahrzeug jedoch nicht gestartet werden [@mercedes_recherche]. **Hyundai** hat ebenfalls in bestimmten modellen mit Fingerabdrucksensoren experimentiert, um den Fahrer zu identifizieren. [@hyundai_recherche]
+**Volkswagen** und dessen Tochterunternehmen setzten ebenfalls auf Fahrerprofile, um bestimmte Funktionen zu synchronisieren. Unter anderem bietet die Volkswagen ID Fahrern die Möglichkeit ihre Profile zu speichern und zu synchronisieren [@vw_recherche]. Die Tochtergesellschaft **Audi** hat mit verschiedenen Konzepten mittels einem Fingerabdruck basierten Schlüsselsystem experimentiert. "[...] setzt Audi künftig als erster Hersteller auf den Fingerabdruck". Dieser Artikel aus der Zeitung "Die Welt am Sonntag" [@audi_recherche] aus dem Jahr 2001 zeigt, dass Audi schon damals mit dem Audi A8 ein neues Schlüsselsystem eingeführt hat, das auf der Erkennung von Fingerabdrücken basiert. Dieses System ermöglicht es dem Fahrer, das Fahrzeug ohne physischen Schlüssel zu entriegeln und zu starten. Diese Technologie wird allerdings in aktuellen Modellen nicht mehr verwendet und ist auf den offiziellen Audi-Webseiten nicht mehr zu finden. **Mercedes-Benz** bietet in einigen neueren Fahrzeugmodellen ebenfalls einen Fingerabdrucksensor an, mit dem Funktionen des Infotainmentsystems aktiviert werden können. Mit dieser Funktion kann das Fahrzeug jedoch nicht gestartet werden [@mercedes_recherche]. **Hyundai** hat ebenfalls in bestimmten Modellen mit Fingerabdrucksensoren experimentiert, um den Fahrer zu identifizieren. [@hyundai_recherche]
 
-Die Luxusautomarke **Genesis**, die zu Hyundai gehört, setzt Gesichtserkennung ein, um das Fahrzeug von außen zu entriegeln, ohne dass ein Schlüssel benötigt wird. Die Kamera ist auf der Fahrerseite angebracht. Zusätzlich befindet sich im Fahrzeuginneren ein Fingerabdrucksensor, mit dem Fahrerprofile ausgewählt werden können. Ein Demonstrationsvideo zeigt den Einbau und die Funktionen der Gesichtserkennung. [@genesis_recherche]
+Die Luxusautomarke **Genesis**, die zum Hyundai Konzern gehört, setzt Gesichtserkennung ein, um das Fahrzeug von außen zu entriegeln, ohne dass ein Schlüssel benötigt wird. Die Kamera ist auf der Fahrerseite angebracht. Zusätzlich befindet sich im Fahrzeuginneren ein Fingerabdrucksensor, mit dem Fahrerprofile ausgewählt werden können. Ein Demonstrationsvideo zeigt den Einbau und die Funktionen der Gesichtserkennung. [@genesis_recherche] **Subaru** setzt ebenfalls auf ein Gesichtserkennungssystem, mit welcher Fahrerprofile freigeschaltet werden können. Gleichzeitig werden auch Sicherheitssysteme wie Aufmerksamkeitswarner verwendet. Diese Funktionalität ist ebenfalls nur auf den Fahrer begrenzt. [@subaru_recherche] 
 
-**Subaru** setzt ebenfalls auf ein Gesichtserkennungssystem, Mit der Gesichtserkennung können Fahrerprofile freigeschaltet werden und gleichzeitig auch Sicherheitssysteme wie Aufmerksamkeitswarner verwendet werden. Diese Funktionalität ist ebenfalls auf den Fahrer begrenzt. [@subaru_recherche] 
-
-Die Tech-Giganten **Apple** und **Amazon** betreten die Automobilbranche mit innovativen Ansätzen zur InsassenIdentifizierung. Apple patentierte "Comfort Profiles", das auf die Erkennung von Personen im Fahrzeug abzielt, auch mittels kamera-basierter Technologien. Die Absicht des Unternehmens, Fahrerprofile für das autonome Fahren zu schaffen, unterstreicht die Beteiligung der Identifizierung an der künftigen Entwicklung autonomer Fahrzeuge. [@apple_patent]
+Die Tech-Giganten **Apple** und **Amazon** betreten die Automobilbranche mit innovativen Ansätzen zur Insassenidentifizierung. Apple patentierte "Comfort Profiles", das auf die Erkennung von Personen im Fahrzeug abzielt, auch mittels kamera-basierter Technologien. Die Absicht des Unternehmens, Fahrerprofile für das autonome Fahren zu schaffen, verdeutlicht die Beteiligung der Identifizierung an der künftigen Entwicklung autonomer Fahrzeuge. [@apple_patent]
 
 Auch **Amazon** verfolgt einen innovativen Ansatz mit einem Patent zur Erstellung von Fahrgastprofilen, das verschiedene Sensoren, einschließlich der Fingerabdruckerkennung, integriert. Dies unterstreicht das Engagement der Tech-Giganten, die traditionelle Automobilindustrie mit fortschrittlichen Technologien zu verändern. [@amazon_patent]
 
@@ -122,12 +125,14 @@ Insgesamt verdeutlichen diese unterschiedlichen Ansätze den intensiven Wettbewe
 
 ### Bewertung und Vergleich
 
-Die Evaluierung der verschiedenen InsassenIdentifizierungstechnologien in der Automobilbranche verdeutlicht eine Vielzahl von Ansätzen, um die Fahrzeugpersonalisierung zu verbessern. Die Verwendung unterschiedlicher Technologien bietet sowohl Chancen als auch Herausforderungen, die es zu berücksichtigen gilt.
+Die Evaluierung der verschiedenen Insassenidentifizierungstechnologien in der Automobilbranche verdeutlicht eine Vielzahl von Ansätze, um die Fahrzeugpersonalisierung zu verbessern. Die Verwendung unterschiedlicher Technologien bietet sowohl Chancen als auch Herausforderungen, die es zu berücksichtigen gilt.
 
-Eine gemeinsame Charakteristik, die sich durch die untersuchten InsassenIdentifizierungstechnologien zieht, ist die Fokussierung auf den Fahrer als Hauptnutzer. Sowohl die schlüsselbasierte Identifizierung als auch biometrische Technologien wie Fingerabdrucksensoren und Gesichtserkennung konzentrieren sich primär auf die Authentifizierung des Fahrers. Diese Ausrichtung spiegelt die aktuelle Praxis wider, bei der die personalisierte Erfahrung hauptsächlich auf die Bedürfnisse und Präferenzen des Fahrers basiert.
+Eine gemeinsame Charakteristik, die sich durch die untersuchten Insassenidentifizierungstechnologien zieht, ist die Fokussierung auf den Fahrer als Hauptnutzer. Sowohl die schlüsselbasierte Identifizierung als auch biometrische Technologien wie Fingerabdrucksensoren und Gesichtserkennung konzentrieren sich primär auf die Authentifizierung des Fahrers. Diese Ausrichtung spiegelt die aktuelle Praxis wider, bei der die personalisierte Erfahrung hauptsächlich auf die Bedürfnisse und Präferenzen des Fahrers basiert.
 
  * Die **schlüsselbasierte Identifizierung** stellt eine bewährte und effektive Methode dar, welche einfach und effektiv ist. Die Identifizierung ist auf den Fahrer beschränkt und kann eine Herausforderung darstellen, wenn das Fahrzeug mit mehreren Personen geteilt wird.
- * **Biometrische Technologien** wie Fingerabdrucksensoren und Gesichtserkennung repräsentieren eine fortschrittlichere und vielseitigere Methode der InsassenIdentifizierung. Im Gegensatz zur schlüsselbasierten Identifizierung können biometrische Technologien auf mehrere Insassen erweitert werden, was eine umfassendere Personalisierung ermöglicht. Trotz ihrer Effektivität und Präzision sind jedoch technische Herausforderungen zu überwinden. Unterschiedliche Lichtverhältnisse können die Leistung beeinträchtigen, und die nahtlose Integration solcher Technologien in Fahrzeuge erfordert sorgfältige Planung und Umsetzung.
+ * **Biometrische Technologien** wie Fingerabdrucksensoren und Gesichtserkennung repräsentieren eine fortschrittlichere und vielseitigere Methode der Insassenidentifizierung. Im Gegensatz zur schlüsselbasierten Identifizierung können biometrische Technologien auf mehrere Insassen erweitert werden, was eine umfassendere Personalisierung ermöglicht. Trotz ihrer Effektivität und Präzision sind jedoch technische Herausforderungen zu überwinden. Unterschiedliche Lichtverhältnisse können die Leistung beeinträchtigen, und die nahtlose Integration solcher Technologien in Fahrzeuge erfordert sorgfältige Planung und Umsetzung.
 
-Die aktuelle Ausrichtung auf den Fahrer als zentrale Person zur Identifizierung verdeutlicht die Notwendigkeit, zukünftige Entwicklungen in der InsassenIdentifizierungstechnologie dahingehend zu erforschen, damit auch die Bedürfnisse und Präferenzen der weiteren Insassen effektiver berücksichtigt werden können. Eine Weiterentwicklung dieser Technologien könnte dazu beitragen, die Personalisierung im Fahrzeug auf ein neues Niveau zu heben.
+Die aktuelle Ausrichtung auf den Fahrer als zentrale Person zur Identifizierung verdeutlicht die Notwendigkeit, zukünftige Entwicklungen in der Insassenidentifizierungstechnologie dahingehend zu erforschen, damit auch die Bedürfnisse und Präferenzen der weiteren Insassen effektiver berücksichtigt werden können. Eine Weiterentwicklung dieser Technologien könnte dazu beitragen, die Personalisierung im Fahrzeug auf ein neues Niveau zu heben.
 
+\newpage
+\lhead{\rightmark}

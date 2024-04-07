@@ -1,3 +1,4 @@
-# Anhang 2: Diagramme {.unnumbered}
+# Anhang 2: UML Sequenzdiagramm: Identifizierungsprozess {.unnumbered}
 
-![UML Sequenzdiagramm: Idetifizierungsprozess](source/diagrams/Identifizierung_Sequenzdiagramm.png){ width=100% }
+\newpage
+Lorem ipsum dolor sit amet, consectetur adipiscing elit

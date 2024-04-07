@@ -1,9 +1,7 @@
-\chapter*{Sperrvermerk}
+\chapter*{Gender-Hinweis}
 
 
-Diese Arbeit beinhaltet vertrauliche Informationen, die der Geheimhaltung unterliegen. Aus diesem Grund darf diese Arbeit ohne vorherige schriftliche Zustimmung der BMW Group nicht vervielfältigt oder veröffentlicht werden.
-
-Dieser Zustimmungsvorbehalt endet am: 15.04.2028
+Zur besseren Lesbarkeit wird in dieser Bachelorarbeit das generische Maskulinum verwendet. Die in dieser Arbeit verwendeten Personenbezeichnungen beziehen sich – sofern nicht anders kenntlich gemacht – auf alle Geschlechter.
 
 \vspace*{\fill}
 \pagenumbering{gobble}

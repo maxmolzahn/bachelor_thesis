@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" modified="2024-03-28T11:54:02.175Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="m6yCHGq2B3UFrow9cQGM" version="23.1.1" type="device">
+  <diagram name="Seite-1" id="cjL0KJetFZDX_Oa60NiK">
+    <mxGraphModel dx="-2004" dy="277" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-25" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="3002" y="340" width="158" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-23" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="2483" y="360" width="677" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-22" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=1 4;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="2483" y="30" width="519" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="P_tBmaPLKVosJnpM1XgC-2" target="P_tBmaPLKVosJnpM1XgC-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-2" value="Speaker x" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="2600" y="40" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="P_tBmaPLKVosJnpM1XgC-4" target="P_tBmaPLKVosJnpM1XgC-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-4" value="Open Webapp" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2555" y="139" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="P_tBmaPLKVosJnpM1XgC-6" target="P_tBmaPLKVosJnpM1XgC-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-6" value="Open add speaker" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2555" y="221" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="P_tBmaPLKVosJnpM1XgC-8" target="P_tBmaPLKVosJnpM1XgC-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-8" value="Record Training data&lt;br&gt;~60 secs" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2555" y="301" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="P_tBmaPLKVosJnpM1XgC-12" target="P_tBmaPLKVosJnpM1XgC-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2520" y="411" />
+              <mxPoint x="2520" y="70" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-10" value="Repeat&lt;br&gt;x amount of&lt;br&gt;speakers" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="P_tBmaPLKVosJnpM1XgC-9">
+          <mxGeometry x="-0.2095" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="P_tBmaPLKVosJnpM1XgC-12" target="P_tBmaPLKVosJnpM1XgC-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-12" value="Upload Training data to backend" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2555" y="381" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="P_tBmaPLKVosJnpM1XgC-14" target="P_tBmaPLKVosJnpM1XgC-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-14" value="View speakers&lt;br&gt;confirm all speakers or remove speaker accordingly" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2710" y="381" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-15" value="Speakers listed in the view speakers page will be used for training the model" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="2710" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-16" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="P_tBmaPLKVosJnpM1XgC-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2730" y="391" as="sourcePoint" />
+            <mxPoint x="2769" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="P_tBmaPLKVosJnpM1XgC-18" target="P_tBmaPLKVosJnpM1XgC-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-18" value="Open train model" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2870" y="381" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-19" value="Select train model and wait" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3030" y="381" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-20" value="Once the training process was successful, a confirmation is shown in the Webapp" style="rounded=0;whiteSpace=wrap;html=1;glass=0;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="3030" y="221" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-21" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="P_tBmaPLKVosJnpM1XgC-20">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="3090.5" y="340" as="sourcePoint" />
+            <mxPoint x="3089.5" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-26" value="Frontend" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="2495" y="40" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-27" value="Backend" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="2490" y="450" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P_tBmaPLKVosJnpM1XgC-28" value="GPU Backend" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="3002" y="336" width="88" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

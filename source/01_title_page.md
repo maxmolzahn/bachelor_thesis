@@ -3,7 +3,7 @@
   Workaround bzw. Rückgriff auf LaTex-Befehle, um zentrale Werte immer wieder verwenden zu können.
 -->
 \newcommand{\titel}{Innovative Lösungsstrategien für die Personenidentifizierung im Fahrzeug: Evaluierung, Auswahl und prototypische Umsetzung mit vorhandener Fahrzeugtechnologie.}
-\newcommand{\datum}{15.03.2024}
+\newcommand{\datum}{08.04.2024}
 
 \newcommand{\aVorname}{Maximilian}
 \newcommand{\aNachname}{Molzahn}
@@ -11,6 +11,7 @@
 \newcommand{\aInstitution}{Hochschule München}
 \newcommand{\aStudiengruppe}{IF7}
 \newcommand{\aSemester}{WS 2023/24}
+\newcommand{\aMatrikelnummer}{15888520}
 
 \newcommand{\aName}{\aVorname\space \aNachname}
 
@@ -41,14 +42,16 @@
         \LARGE
         \titel
 
-        \vspace{0.5cm}
+        \vfill
 
         \Large
-        \aName
-
-        \vspace{0.3cm}
+        \aName \\
 
         \normalsize
+        Matrikelnummer: \aMatrikelnummer
+
+        \vfill
+        
         Bachelorarbeit Informatik
 
         \vfill

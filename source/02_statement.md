@@ -6,7 +6,8 @@
 \chapter*{Erklärung}
 
 \begin{center}
-  \aName, geb. \aGeburtsdatum\space (\aStudiengruppe,\space \aSemester)
+  \aName, geb. \aGeburtsdatum\space (\aStudiengruppe,\space \aSemester) \\
+  Matrikelnummer: \aMatrikelnummer
 \end{center}  
 
 \vspace*{1.0cm}
